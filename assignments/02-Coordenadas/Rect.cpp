@@ -29,6 +29,21 @@ Rect Rect::operator+(Polar p)
     return tmp;
 }
 
+Rect Rect::operator-(Rect val)
+{
+    Rect tmp;
+    tmp.x = this->x - val.x;
+    tmp.y = this->y - val.y;
+    return tmp;
+}
+
+Rect Rect::operator-(Polar val){
+    Rect tmp;
+    tmp.x = this->x - val.getR()*std::cos(val.getTheta());
+    tmp.y = this->y - val.getR()*std::sin(val.getTheta());
+    return tmp;
+}
+
 int Rect::getX()
 {
     return x;
